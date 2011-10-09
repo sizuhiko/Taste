@@ -20,10 +20,10 @@ h3. Install
 
 Copy taste.php to under the root directory of CakePHP.
 
-<pre><code>
+&lt;pre>&lt;code>
 ls
   app  cake  index.php  plugins  taste.php  vendors
-</code></pre>
+&lt;/code>&lt;/pre>
 
 The initial install is an end.
 
@@ -64,35 +64,36 @@ h3. Dispatch URL
 
 php> $Dispatcher = new Dispatcher('/posts');
 
-@<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	<title>
-		CakePHP: the rapid development php framework:		Posts	</title>
-	<link href="http:/app/webroot/favicon.ico" type="image/x-icon" rel="icon" /><link href="http:/app/webroot/favicon.ico" type="image/x-icon" rel="shortcut icon" /><link rel="stylesheet" type="text/css" href="http:/app/webroot/css/cake.generic.css" /></head>
-<body>
-	<div id="container">
-		<div id="header">
-			<h1><a href="http://cakephp.org">CakePHP: the rapid development php framework</a></h1>
-		</div>
-		<div id="content">
+<pre><code>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+	&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;	&lt;title&gt;
+		CakePHP: the rapid development php framework:		Posts	&lt;/title&gt;
+	&lt;link href="http:/app/webroot/favicon.ico" type="image/x-icon" rel="icon" /&gt;&lt;link href="http:/app/webroot/favicon.ico" type="image/x-icon" rel="shortcut icon" /&gt;&lt;link rel="stylesheet" type="text/css" href="http:/app/webroot/css/cake.generic.css" /&gt;&lt;/head&gt;
+&lt;body&gt;
+	&lt;div id="container"&gt;
+		&lt;div id="header"&gt;
+			&lt;h1&gt;&lt;a href="http://cakephp.org"&gt;CakePHP: the rapid development php framework&lt;/a&gt;&lt;/h1&gt;
+		&lt;/div&gt;
+		&lt;div id="content"&gt;
 
 			
-			<h1>Blog posts</h1>
-<table>
-<tr>
-<th>Id</th>
-<th>Title</th>
-<th>Created</th>
-</tr>
-<!-- Here is where we loop through our $posts array, printing out post info -->
-<tr>
-<td>1</td>
-<td>
-<a href="http:/localhost/posts/view/1">タイトル</a></td>
-<td>2011-06-18 20:30:35</td>
-</tr>
-@
+			&lt;h1&gt;Blog posts&lt;/h1&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Id&lt;/th&gt;
+&lt;th&gt;Title&lt;/th&gt;
+&lt;th&gt;Created&lt;/th&gt;
+&lt;/tr&gt;
+&lt;!-- Here is where we loop through our $posts array, printing out post info --&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;
+&lt;a href="http:/localhost/posts/view/1"&gt;タイトル&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;2011-06-18 20:30:35&lt;/td&gt;
+&lt;/tr&gt;
+</code></pre>
 
 h3. Using Router
 
