@@ -20,10 +20,10 @@ h3. Install
 
 Copy taste.php to under the root directory of CakePHP.
 
-&lt;pre>&lt;code>
+<pre><code>
 ls
   app  cake  index.php  plugins  taste.php  vendors
-&lt;/code>&lt;/pre>
+</code></pre>
 
 The initial install is an end.
 
