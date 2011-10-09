@@ -1,0 +1,101 @@
+h1. Taste is custom-loader of CakePHP Application for facebook/phpsh
+
+Copyright(c) 2011 Sizuhiko. Licensed under the MIT license.
+
+h2. Overview
+
+phpsh is a read-eval-print-loop for php that features readline history, tab completion, and quick access to documentation. 
+Taste is includes and require some CakePHP classes for phpsh.
+Taste works like 'Rails c' for your CakePHP application.
+
+h2. Usage
+
+h3. Require
+
+* PHP 5.3.1 or later
+* facebook/phpsh (https://github.com/facebook/phpsh)
+* CakePHP 1.3.x (not support 2.0 yet)
+
+h3. Install
+
+Copy taste.php to under the root directory of CakePHP.
+
+<pre><code>
+ls
+  app  cake  index.php  plugins  taste.php  vendors
+</code></pre>
+
+The initial install is an end.
+
+h3. Let's execute it. 
+
+Move to the directory including cake, app, and vendors, and next, execute the following commands. 
+@phpsh taste.php@
+
+h2. Example usage
+
+You can use CakePHP core classes and your application classes.
+
+h3. Using Models
+
+php> $post = ClassRegistry::init('Post');
+php> $data = $post->find('all');
+php> var_dump($data);
+array(3) {
+  [0]=>
+  array(1) {
+    ["Post"]=>
+    array(5) {
+      ["id"]=>
+      string(1) "1"
+      ["title"]=>
+      string(12) "The title"
+      ["body"]=>
+      string(36) "This is the post body."
+      ["created"]=>
+      string(19) "2011-06-18 20:30:35"
+      ["modified"]=>
+      NULL
+    }
+  }
+  [1]=> ....
+
+h3. Dispatch URL
+
+php> $Dispatcher = new Dispatcher('/posts');
+
+@<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	<title>
+		CakePHP: the rapid development php framework:		Posts	</title>
+	<link href="http:/app/webroot/favicon.ico" type="image/x-icon" rel="icon" /><link href="http:/app/webroot/favicon.ico" type="image/x-icon" rel="shortcut icon" /><link rel="stylesheet" type="text/css" href="http:/app/webroot/css/cake.generic.css" /></head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h1><a href="http://cakephp.org">CakePHP: the rapid development php framework</a></h1>
+		</div>
+		<div id="content">
+
+			
+			<h1>Blog posts</h1>
+<table>
+<tr>
+<th>Id</th>
+<th>Title</th>
+<th>Created</th>
+</tr>
+<!-- Here is where we loop through our $posts array, printing out post info -->
+<tr>
+<td>1</td>
+<td>
+<a href="http:/localhost/posts/view/1">タイトル</a></td>
+<td>2011-06-18 20:30:35</td>
+</tr>
+@
+
+h3. Using Router
+
+php> echo Router::url(array('controller'=>'posts', 'action'=>'index'), false);
+http:/localhost/posts
+
