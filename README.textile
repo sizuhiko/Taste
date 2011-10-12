@@ -5,7 +5,8 @@ Copyright(c) 2011 Sizuhiko. Licensed under the MIT license.
 h2. Overview
 
 phpsh is a read-eval-print-loop for php that features readline history, tab completion, and quick access to documentation. 
-Taste is includes and require some CakePHP classes for phpsh.
+Taste is interactive-shell for CakePHP.
+It includes and require some CakePHP classes for phpsh.
 Taste works like 'Rails c' for your CakePHP application.
 
 h2. Usage
