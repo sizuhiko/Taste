@@ -1,4 +1,4 @@
-h1. Taste is custom-loader of CakePHP Application for facebook/phpsh
+h1. Taste is bootstrap of CakePHP2 Application for pear/PHP_Shell_
 
 Copyright(c) 2011 Sizuhiko. Licensed under the MIT license.
 
@@ -57,9 +57,9 @@ You can use CakePHP2.x core classes and your application classes.
 
 h3. Using Models
 
+<pre><code>
 >> $post = ClassRegistry::init('Post');
 >> $data = $post->find('all');
-<pre><code>
 array (
   0 =>
   array (
@@ -77,12 +77,12 @@ array (
 
 h3. Dispatch URL
 
+<pre><code>
 >> $dispatcher = new Dispatcher();
 >> $request = new CakeRequest('/posts');
 >> $response = new CakeResponse();
 >> $dispatcher->dispatch($request, $response);
 
-<pre><code>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -115,6 +115,8 @@ h3. Dispatch URL
 
 h3. Using Router
 
+<pre><code>
 >> Router::url(array('controller'=>'posts', 'action'=>'index'), false);
 '/posts'
+</code></pre>
 
