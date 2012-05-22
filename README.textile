@@ -4,26 +4,36 @@ Copyright(c) 2011 Sizuhiko. Licensed under the MIT license.
 
 h2. Overview
 
-phpsh is a read-eval-print-loop for php that features readline history, tab completion, and quick access to documentation. 
-Taste is interactive-shell for CakePHP.
-It includes and require some CakePHP classes for phpsh.
-Taste works like 'Rails c' for your CakePHP application.
+PHP_Shell is a interactive PHP Shell with tab-completion, inline help and handling of FATAL errors.
+If php installed with configure option --with-readline, I recommend use `php -a`.
+But, the configure option is not include, `php -a` is a Intaractive Mode(is not Intaractie Shell).
+Taste is bootstrap of CakePHP2.x for PHP_Shell.
+It includes and require some CakePHP2.x classes for PHP_Shell.
+Taste works like 'Rails c' for your CakePHP2.x application.
 
 h2. Usage
 
 h3. Require
 
-* PHP 5.3.1 or later
-* facebook/phpsh (https://github.com/facebook/phpsh)
-* CakePHP 1.3.x (not support 2.0 yet)
+* PHP 5.3.1 or later (5.4 is ready too!)
+* pear/PHP_Shell
+** http://pear.php.net/package/PHP_Shell/
+** https://github.com/pear/PHP_Shell
+** http://jan.kneschke.de/projects/php-shell/
+* CakePHP 2.x (if you use CakePHP1.3, please check tags)
 
 h3. Install
+
+Install PHP_Shell pear package.
+<pre><code>
+pear install PHP_Shell-0.3.1
+</code></pre>
 
 Copy taste.php to under the root directory of CakePHP.
 
 <pre><code>
 ls
-  app  cake  index.php  plugins  taste.php  vendors
+  app  index.php  lib  plugins  taste.php  vendors
 </code></pre>
 
 The initial install is an end.
@@ -31,41 +41,46 @@ The initial install is an end.
 h3. Let's execute it. 
 
 Move to the directory including cake, app, and vendors, and next, execute the following commands. 
-@phpsh taste.php@
+<pre><code>
+$ php-shell.sh 
+PHP-Shell - Version 0.3.1
+(c) 2006, Jan Kneschke <jan@kneschke.de>
+
+>> use '?' to open the inline help 
+
+>> r taste.php
+</code></pre>
 
 h2. Example usage
 
-You can use CakePHP core classes and your application classes.
+You can use CakePHP2.x core classes and your application classes.
 
 h3. Using Models
 
-php> $post = ClassRegistry::init('Post');
-php> $data = $post->find('all');
-php> var_dump($data);
+>> $post = ClassRegistry::init('Post');
+>> $data = $post->find('all');
 <pre><code>
-array(3) {
-  [0]=>
-  array(1) {
-    ["Post"]=>
-    array(5) {
-      ["id"]=>
-      string(1) "1"
-      ["title"]=>
-      string(12) "The title"
-      ["body"]=>
-      string(36) "This is the post body."
-      ["created"]=>
-      string(19) "2011-06-18 20:30:35"
-      ["modified"]=>
-      NULL
-    }
-  }
-  [1]=> ....
+array (
+  0 =>
+  array (
+    'Post' =>
+    array (
+      'id' => '1'
+      'title' => 'The title'
+      'body' => 'This is the post body.'
+      'created' => '2011-06-18 20:30:35'
+      'modified' => NULL
+    ),
+  ),
+  1 => ....
 </code></pre>
 
 h3. Dispatch URL
 
-php> $Dispatcher = new Dispatcher('/posts');
+>> $dispatcher = new Dispatcher();
+>> $request = new CakeRequest('/posts');
+>> $response = new CakeResponse();
+>> $dispatcher->dispatch($request, $response);
 
 <pre><code>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -93,13 +108,13 @@ php> $Dispatcher = new Dispatcher('/posts');
 <tr>
 <td>1</td>
 <td>
-<a href="http:/localhost/posts/view/1">タイトル</a></td>
+<a href="http:/localhost/posts/view/1">Title</a></td>
 <td>2011-06-18 20:30:35</td>
 </tr>
 </code></pre>
 
 h3. Using Router
 
-php> echo Router::url(array('controller'=>'posts', 'action'=>'index'), false);
-http:/localhost/posts
+>> Router::url(array('controller'=>'posts', 'action'=>'index'), false);
+'/posts'
 
